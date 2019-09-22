@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvSendSmsHeader"
+        android:text="@string/dialog_sms_header"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:hint="@string/dialog_sms_number_hint"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:inputType="phone"
+        android:maxLength="10"/>
+
+    <EditText
+        android:id="@+id/etSmsMessage"
+        android:hint="@string/dialog_sms_message_hint"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:importantForAutofill="no"
+        android:inputType="textAutoCorrect" />
+
+    <Button
+        android:id="@+id/btnSendSms"
+        android:text="@string/dialog_sms_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

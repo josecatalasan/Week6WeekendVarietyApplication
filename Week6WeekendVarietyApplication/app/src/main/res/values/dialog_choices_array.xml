@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dialog_choices">
+        <item>PDF Viewer</item>
+        <item>Dialog Fragment</item>
+        <item>Send SMS</item>
+        <item>Timer</item>
+        <item>Notification</item>
+    </string-array>
+</resources>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Week6WeekendVarietyApplication</string>
+
+    <string name="dialog_sms_number_hint">Enter a 10 digit phone number</string>
+    <string name="dialog_sms_message_hint">Enter your message…</string>
+    <string name="dialog_sms_button">Send</string>
+    <string name="dialog_sms_header">Send SMS</string>
+    <string name="button_start_text">START</string>
+    <string name="button_stop_text">STOP</string>
+    <string name="timer_duration_hint">Enter timer duration</string>
+    <string name="default_timer_duration">5</string>
+
+</resources>
