@@ -35,5 +35,4 @@ class SmsDialog(private val context : Context){
         }
         builder.setView(dialogView).show()
     }
-
 }
