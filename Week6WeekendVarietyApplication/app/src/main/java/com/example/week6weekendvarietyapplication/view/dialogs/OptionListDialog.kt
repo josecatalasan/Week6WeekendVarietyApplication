@@ -1,11 +1,18 @@
 package com.example.week6weekendvarietyapplication.view.dialogs
 
+import android.app.Notification
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Context.NOTIFICATION_SERVICE
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.getSystemService
 import com.example.week6weekendvarietyapplication.R
 import com.example.week6weekendvarietyapplication.view.activities.MainActivity
+import com.example.week6weekendvarietyapplication.view.activities.PdfViewerActivity
 import com.example.week6weekendvarietyapplication.view.activities.TimerActivity
 
 class OptionListDialog(private val context : Context) {
@@ -22,7 +29,10 @@ class OptionListDialog(private val context : Context) {
             .setItems(R.array.dialog_choices, DialogInterface.OnClickListener {
             dialog,id ->
                 when(id){
-                    PDF_VIEWER -> {}
+                    PDF_VIEWER -> {
+                        val intent = Intent(context, PdfViewerActivity::class.java)
+                        context.startActivity(intent)
+                    }
                     DIALOG_FRAGMENT -> {
                         ImageDialogFragment().show((context as MainActivity).supportFragmentManager, "ImageDialogFragment")
                     }
@@ -31,8 +41,28 @@ class OptionListDialog(private val context : Context) {
                         smsDialog.show()
                     }
                     STOPWATCH -> {
-                        var intent = Intent(context, TimerActivity::class.java)
+                        val intent = Intent(context, TimerActivity::class.java)
                         context.startActivity(intent)
+                    }
+                    SEND_NOTIFICATION -> {
+                        val intent = Intent(context, PdfViewerActivity::class.java)
+                        val pendingIntent = PendingIntent.getActivity(context, System.currentTimeMillis().toInt(), intent, 0)
+                        val notification = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            Notification.Builder(context, "Channel")
+                                .setSmallIcon(R.drawable.ic_notification)
+                                .setContentTitle("IS THIS WORKING?!")
+                                .setContentText("HELLLOOOOO?!?!")
+                                .setContentIntent(pendingIntent).build()
+                        } else {
+                            TODO("VERSION.SDK_INT < O")
+//                            Notification.Builder(context)
+//                                .setSmallIcon(R.drawable.ic_notification)
+//                                .setContentTitle("IS THIS WORKING?!")
+//                                .setContentText("HELLLOOOOO?!?!")
+//                                .setContentIntent(pendingIntent).build()
+                        }
+                        val manager = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+                        manager.notify(0, notification)
                     }
                 }
         }).show()

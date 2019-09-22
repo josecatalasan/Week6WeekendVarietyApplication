@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.week6weekendvarietyapplication">
 
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activities.TimerActivity"></activity>
+        <activity android:name=".view.activities.PdfViewerActivity"></activity>
+        <activity android:name=".view.activities.TimerActivity" />
         <activity
             android:name=".view.activities.SplashActivity"
             android:theme="@style/SplashTheme">
