@@ -9,5 +9,7 @@
     <string name="button_stop_text">STOP</string>
     <string name="timer_duration_hint">Enter timer duration</string>
     <string name="default_timer_duration">5</string>
+    <string name="button_reset_text">RESET</string>
+    <string name="main_button_text">Features</string>
 
 </resources>

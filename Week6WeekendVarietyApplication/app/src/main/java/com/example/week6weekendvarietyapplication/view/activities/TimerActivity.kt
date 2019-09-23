@@ -22,6 +22,5 @@ class TimerActivity : AppCompatActivity() {
 
         fragmentManager.beginTransaction().replace(R.id.frameTimerButtons, timerButtonsFragment, "buttons").commit()
         fragmentManager.beginTransaction().replace(R.id.frameTimerCount, timerDisplayFragment, "display").commit()
-
     }
 }

@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.MainActivity" />
+        <activity android:name=".view.activities.MainActivity" android:configChanges="screenSize|orientation"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.week6weekendvarietyapplication.view.dialogs
+package com.example.week6weekendvarietyapplication.view.fragments
 
 import android.os.Bundle
 import android.os.Handler

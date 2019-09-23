@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 import com.example.week6weekendvarietyapplication.view.activities.MainActivity
+import com.example.week6weekendvarietyapplication.view.fragments.ImageDialogFragment
 
 class DoubleConfirmationDialog(private val context : Context, private val youSure : Boolean) : DialogInterface.OnClickListener{
 
@@ -27,7 +28,8 @@ class DoubleConfirmationDialog(private val context : Context, private val youSur
         when(which){
             DialogInterface.BUTTON_POSITIVE ->{
                 if(youSure){
-                    ImageDialogFragment().show((context as MainActivity).supportFragmentManager, "ImageDialogFragment")
+                    ImageDialogFragment()
+                        .show((context as MainActivity).getDialogManager(), "ImageDialogFragment")
                 } else {
                     DoubleConfirmationDialog(context, true).show()
                 }

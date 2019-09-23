@@ -28,10 +28,9 @@ class TimerButtonsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binder = DataBindingUtil.inflate(inflater, R.layout.fragment_timer_buttons,container, false)
-        val view : View = binder.root
         binder.viewModel = viewModel
         binder.lifecycleOwner = this
-        return view
+        return binder.root
     }
 
     companion object {

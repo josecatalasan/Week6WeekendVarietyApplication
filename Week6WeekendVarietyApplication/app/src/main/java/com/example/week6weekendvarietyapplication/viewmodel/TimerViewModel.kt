@@ -1,6 +1,5 @@
 package com.example.week6weekendvarietyapplication.viewmodel
 
-import android.text.Editable
 import androidx.lifecycle.MutableLiveData
 
 import androidx.lifecycle.ViewModel
@@ -10,45 +9,44 @@ class TimerViewModel : ViewModel() {
 
     private var timer : Timer
     val timerCount = MutableLiveData<String>()
-    val duration = MutableLiveData<Double>()
-    var counter = 0.0
+    var secondCounter = 0.0
+    var minuteCounter = 0
 
     init{
         timer = Timer()
-        duration.value = 5.0
-        timerCount.value = "Enter Timer Duration"
-    }
-
-    fun durationChange(editable : Editable){
-        if(editable.toString() != "")
-            duration.postValue(editable.toString().toDouble())
-    }
-
-    fun reset(){
-        counter = 0.0
-        timer.cancel()
+        timerCount.value = ""+secondCounter+"s"
     }
 
     fun onStartClicked(){
-        reset()
+        timer.cancel()
         timer = Timer()
         timer.scheduleAtFixedRate(object : TimerTask(){
             override fun run() {
-                counter += 0.1
-                counter ="%.2f".format(counter).toDouble()
-                timerCount.postValue("In progress: $counter")
-                if(counter >= duration.value!!){
-                    reset()
-                    timerCount.postValue("Completed")
+                secondCounter += 0.1
+                if(secondCounter >= 60.0) {
+                    minuteCounter++
+                    secondCounter -= 60.0
                 }
+                secondCounter = "%.2f".format(secondCounter).toDouble()
+
+                if(minuteCounter > 0)
+                    timerCount.postValue("" +minuteCounter+"m "+ secondCounter + "s")
+                else
+                    timerCount.postValue(""+secondCounter +"s")
             }
         }, 0,100)
     }
 
     fun onStopClicked() {
-        if(counter > 0.0) {
-            reset()
-            timerCount.value = "Stopped"
+        if(secondCounter > 0.0) {
+            timer.cancel()
         }
+    }
+
+    fun onResetClicked(){
+        timer.cancel()
+        secondCounter = 0.0
+        minuteCounter = 0
+        timerCount.value = ""+secondCounter+"s"
     }
 }
