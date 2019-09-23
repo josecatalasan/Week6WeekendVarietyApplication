@@ -3,6 +3,7 @@ This application is mainly for implementing and showing a variety of Android com
 
 ## Splash Activity
 This activity shows a picture in the background as it starts the Main Activity.
+
 <img src= "https://github.com/josecatalasan/Week6WeekendVarietyApplication/blob/master/screenshot0.png?raw=true" width=300>
 
 ## Main Activity
